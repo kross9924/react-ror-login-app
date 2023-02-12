@@ -1,0 +1,11 @@
+<%= content_tag(:div, "", id:"app", data: {
+    controller: "react"
+}) %>
+
+<% if current_user %>
+<h2 class = 'center'> <%= current_user.email %></h2>
+<%# <%= image_tag(current_user.avatar_url) %>
+<%= button_to "Logout", destroy_user_session_path, data: {turbo: "false"}, method: :delete %>
+<% else %>
+<%= link_to "Login", new_user_session_path %>
+<% end %>
